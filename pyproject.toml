@@ -1,0 +1,44 @@
+[project]
+name = "alpha-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.3.0",
+    "polars>=1.30.0",
+    "ruff>=0.11.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0"
+]
+
+[tool.ruff]
+line-length = 120
+fix = true
+show-fixes = true
+src = ["src"]
+
+# Enable all-in-one workflow with ruff
+# Linting, formatting, import sorting, and (limited) type checking
+lint.select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "B",    # bugbear
+    "I",    # isort (import sorting)
+    "UP",   # pyupgrade
+    "C90",  # mccabe complexity
+    "N",    # pep8-naming
+    "D",    # pydocstyle (docstrings)
+    "A",    # builtins
+    "TCH",  # type-checking (ruff-specific, limited)
+    "TID",  # tidy imports
+    "PL",   # pylint
+    "RUF",  # ruff-specific rules
+]
+lint.ignore = ["D100", "D104"] # Ignore missing docstring for __init__.py and public modules
+
+[tool.uv]
+# uv-specific configuration can be added here if needed
